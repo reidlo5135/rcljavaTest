@@ -6,10 +6,13 @@
 #define _Included_JNI
 #ifdef __cplusplus
 #include <iostream>
+#include "rclcpp/rclcpp.hpp"
+#include "std_msgs/msg/string.hpp"
 extern "C" {
 #endif
 
-JNIEXPORT void JNICALL Java_net_robot_wavem_jni_Jni_say_1hello(JNIEnv* env, jobject obj);
+JNIEXPORT void JNICALL Java_net_robot_wavem_jni_Jni_say_1hello(JNIEnv * env, jobject obj);
+JNIEXPORT void JNICALL Java_net_robot_wavem_jni_Jni_chatter_1subscription(JNIEnv * env, jobject obj);
 
 #ifdef __cplusplus
 }

@@ -21,6 +21,8 @@ include_directories(
   /usr/lib/jvm/java-8-openjdk-amd64/include/linux
 )
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fPIC")
+
 find_package(ament_cmake REQUIRED)
 find_package(ament_cmake REQUIRED)
 find_package(rcl REQUIRED)
@@ -34,6 +36,19 @@ find_package(nav2_msgs REQUIRED)
 find_package(tf2_msgs REQUIRED)
 find_package(jsoncpp REQUIRED)
 find_package(example_interfaces REQUIRED)
+find_package(JNI REQUIRED)
+include_directories(${JNI_INCLUDE_DIRS})
+
+add_library(rclcpp_for_java_jni SHARED
+    include/jni.hpp
+    src/jni.cpp
+)
+
+target_link_libraries(rclcpp_for_java_jni
+    ${JNI_LIBRARIES}
+    ${rclcpp_LIBRARIES}
+    ${std_msgs_LIBRARIES}
+)
 
 add_executable(jni_tester src/jni.cpp)
 ament_target_dependencies(jni_tester rcl rclcpp std_msgs geometry_msgs sensor_msgs nav_msgs nav2_msgs tf2_msgs example_interfaces)
