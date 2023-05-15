@@ -1,0 +1,46 @@
+cmake_minimum_required(VERSION 3.5)
+project(rclcpp_for_java)
+
+if(NOT CMAKE_C_STANDARD)
+  set(CMAKE_C_STANDARD 99)
+endif()
+
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
+endif()
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+include_directories(
+  include
+  include/${PROJECT_NAME}
+  /usr/local/include
+  /usr/lib/jvm/java-8-openjdk-amd64/include
+  /usr/lib/jvm/java-8-openjdk-amd64/include/linux
+)
+
+find_package(ament_cmake REQUIRED)
+find_package(ament_cmake REQUIRED)
+find_package(rcl REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(actionlib_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(nav2_msgs REQUIRED)
+find_package(tf2_msgs REQUIRED)
+find_package(jsoncpp REQUIRED)
+find_package(example_interfaces REQUIRED)
+
+add_executable(jni_tester src/jni.cpp)
+ament_target_dependencies(jni_tester rcl rclcpp std_msgs geometry_msgs sensor_msgs nav_msgs nav2_msgs tf2_msgs example_interfaces)
+
+install(TARGETS
+  jni_tester
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+ament_package()
