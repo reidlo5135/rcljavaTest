@@ -1,0 +1,6 @@
+#ifndef RCLCPP_SUBSCRIPTION
+#define RCLCPP_SUBSCRIPTION
+
+
+
+#endif
