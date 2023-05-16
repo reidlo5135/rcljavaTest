@@ -3,11 +3,10 @@ package net.robot.wavem.jni;
 import java.io.File;
 
 public class Jni {
-    public native void say_hello();
-    public native void chatter_subscription();
+    public native void rcljava_init(String node_name);
+    public native void chatter_subscription(String topic_name);
 
     static {
-        // String soPath = "/home/wavem/vsWorkspace/rcljava/src/rclcpp_for_java/binary/libjni.so";
         String soPath = "/home/wavem/vsWorkspace/rcljava/src/rclcpp_for_java/build/rclcpp_for_java/librclcpp_for_java_jni.so";
         File r = new File(soPath);
         System.load(r.getAbsolutePath());
@@ -15,7 +14,8 @@ public class Jni {
 
     public static void main(String args[]) {
         Jni jni = new Jni();
-        jni.say_hello();
-        jni.chatter_subscription();
+        String node_name = "tester_node";
+        jni.rcljava_init(node_name);
+        jni.chatter_subscription("/chatter");
     }
 }
