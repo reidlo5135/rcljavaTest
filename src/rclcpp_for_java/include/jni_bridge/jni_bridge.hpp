@@ -5,11 +5,14 @@
 #ifndef _Included_JNI
 #define _Included_JNI
 #ifdef __cplusplus
+#include <cstdlib>
+#include <string>
 #include "rclcpp_for_java/rclcpp_for_java.hpp"
 extern "C" {
 #endif
 
-JNIEXPORT void JNICALL Java_net_robot_wavem_jni_Jni_rcljava_1init(JNIEnv * j_env, jobject j_obj, jstring j_node_name);
+JNIEXPORT void JNICALL Java_net_robot_wavem_jni_Jni_spin(JNIEnv * j_env, jobject j_obj);
+JNIEXPORT void JNICALL Java_net_robot_wavem_jni_Jni_chatter_1publish(JNIEnv * j_env, jobject j_obj, jstring j_chatter_message);
 JNIEXPORT void JNICALL Java_net_robot_wavem_jni_Jni_chatter_1subscription(JNIEnv * j_env, jobject j_obj, jstring j_topic_name);
 
 #ifdef __cplusplus
