@@ -7,13 +7,18 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 
-class RclcppNode : public rclcpp::Node {
-    private :
-        std::shared_ptr<rclcpp::Node> ros_node_ptr_;
-    public :
-        RclcppNode(const char * node_name);
-        virtual ~RclcppNode();
-        void chatter_subscription(const std::string& topic_name);
+class RCLJava : public rclcpp::Node {
+  private :
+    std::shared_ptr<rclcpp::Node> ros_node_ptr_;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr ros_chatter_publisher_ptr_;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr ros_chatter_subscription_ptr_;
+  public :
+    RCLJava();
+    virtual ~RCLJava();
+    void spin();
+    void chatter_publish(const std::string& chatter_message);
 };
+
+void rcljava_init(int argc, char** argv);
 
 #endif

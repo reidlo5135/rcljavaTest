@@ -26,6 +26,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fPIC")
 
 find_package(ament_cmake REQUIRED)
 find_package(ament_cmake REQUIRED)
+find_package(rmw REQUIRED)
 find_package(rcl REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
@@ -52,15 +53,11 @@ target_link_libraries(rclcpp_for_java_jni
     ${std_msgs_LIBRARIES}
 )
 
-add_executable(rclcpp_for_java src/rclcpp_for_java/rclcpp_for_java.cpp)
+add_executable(rclcpp_for_java src/jni_bridge/jni_bridge.cpp src/rclcpp_for_java/rclcpp_for_java.cpp)
 ament_target_dependencies(rclcpp_for_java rcl rclcpp std_msgs geometry_msgs sensor_msgs nav_msgs nav2_msgs tf2_msgs example_interfaces)
-
-add_executable(jni_bridge src/jni_bridge/jni_bridge.cpp src/rclcpp_for_java/rclcpp_for_java.cpp)
-ament_target_dependencies(jni_bridge rcl rclcpp std_msgs geometry_msgs sensor_msgs nav_msgs nav2_msgs tf2_msgs example_interfaces)
 
 install(TARGETS
   rclcpp_for_java
-  jni_bridge
   DESTINATION lib/${PROJECT_NAME}
 )
 
