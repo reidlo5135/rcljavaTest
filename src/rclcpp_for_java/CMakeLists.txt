@@ -51,6 +51,17 @@ target_link_libraries(rcljava_chatter_connections
   ${std_msgs_LIBRARIES}
 )
 
+add_library(rcljava_odometry_connections SHARED
+  include/odometry/rcljava_odometry_connections
+  src/odometry/rcljava_odometry_connections
+)
+
+target_link_libraries(rcljava_odometry_connections
+  ${JNI_LIBRARIES}
+  ${rclcpp_LIBRARIES}
+  ${nav_msgs_LIBRARIES}
+)
+
 # add_executable(rcljava_chatter_connections src/chatter/rcljava_chatter_connections.cpp)
 # ament_target_dependencies(rcljava_chatter_connections rcl rclcpp std_msgs geometry_msgs sensor_msgs nav_msgs nav2_msgs tf2_msgs example_interfaces)
 
