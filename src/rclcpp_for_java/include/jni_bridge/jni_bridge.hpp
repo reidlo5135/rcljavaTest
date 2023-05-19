@@ -11,9 +11,8 @@
 extern "C" {
 #endif
 
-JNIEXPORT void JNICALL Java_net_robot_wavem_jni_Jni_spin(JNIEnv * j_env, jobject j_obj);
-JNIEXPORT void JNICALL Java_net_robot_wavem_jni_Jni_chatter_1publish(JNIEnv * j_env, jobject j_obj, jstring j_chatter_message);
-JNIEXPORT void JNICALL Java_net_robot_wavem_jni_Jni_chatter_1subscription(JNIEnv * j_env, jobject j_obj, jstring j_topic_name);
+JNIEXPORT void JNICALL Java_net_robot_wavem_publish_chatter_ChatterPublisher_publish_1to_1chatter(JNIEnv * j_env, jobject j_obj, jobjectArray j_chatter_message_array);
+JNIEXPORT void JNICALL Java_net_robot_wavem_subscription_chatter_ChatterSubscription_subscribe_1from_1chatter(JNIEnv * j_env, jobject j_obj);
 
 #ifdef __cplusplus
 }
