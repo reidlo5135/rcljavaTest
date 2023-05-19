@@ -1,4 +1,4 @@
-package net.robot.wavem.publish.chatter;
+package net.robot.wavem.publisher.chatter;
 
 import java.io.File;
 import java.util.Arrays;

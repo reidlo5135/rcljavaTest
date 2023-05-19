@@ -11,6 +11,10 @@ public class ChatterSubscription {
         System.load(r.getAbsolutePath());
     }
 
+    void chatterSubscriptionCallback(String callbackChatterData) {
+        System.out.println("[RCLJava] chatter subscription callback chatter : " + callbackChatterData);
+    }
+
     public static void main(String[] args) {
         ChatterSubscription chatterSubscription = new ChatterSubscription();
         chatterSubscription.subscribe_from_chatter();

@@ -7,7 +7,8 @@
 #ifdef __cplusplus
 #include <cstdlib>
 #include <string>
-#include "rclcpp_for_java/rclcpp_for_java.hpp"
+#include "rclcpp/rclcpp.hpp"
+#include "std_msgs/msg/string.hpp"
 extern "C" {
 #endif
 
