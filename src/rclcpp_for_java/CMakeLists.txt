@@ -40,24 +40,22 @@ find_package(jsoncpp REQUIRED)
 find_package(example_interfaces REQUIRED)
 find_package(JNI REQUIRED)
 
-add_library(rclcpp_for_java_jni SHARED
-    include/jni_bridge/jni_bridge.hpp
-    src/jni_bridge/jni_bridge.cpp
-    include/rclcpp_for_java/rclcpp_for_java.hpp
-    src/rclcpp_for_java/rclcpp_for_java.cpp
+add_library(rcljava_chatter_connections SHARED
+  include/chatter/rcljava_chatter_connections.hpp
+  src/chatter/rcljava_chatter_connections.cpp
 )
 
-target_link_libraries(rclcpp_for_java_jni
-    ${JNI_LIBRARIES}
-    ${rclcpp_LIBRARIES}
-    ${std_msgs_LIBRARIES}
+target_link_libraries(rcljava_chatter_connections
+  ${JNI_LIBRARIES}
+  ${rclcpp_LIBRARIES}
+  ${std_msgs_LIBRARIES}
 )
 
-add_executable(rclcpp_for_java src/jni_bridge/jni_bridge.cpp src/rclcpp_for_java/rclcpp_for_java.cpp)
-ament_target_dependencies(rclcpp_for_java rcl rclcpp std_msgs geometry_msgs sensor_msgs nav_msgs nav2_msgs tf2_msgs example_interfaces)
+# add_executable(rcljava_chatter_connections src/chatter/rcljava_chatter_connections.cpp)
+# ament_target_dependencies(rcljava_chatter_connections rcl rclcpp std_msgs geometry_msgs sensor_msgs nav_msgs nav2_msgs tf2_msgs example_interfaces)
 
 install(TARGETS
-  rclcpp_for_java
+  rcljava_chatter_connections
   DESTINATION lib/${PROJECT_NAME}
 )
 
