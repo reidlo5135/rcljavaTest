@@ -9,6 +9,14 @@
 #include <string>
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
+#define DEFAULT_ARGC 0
+#define DEFAULT_ARGV nullptr 
+#define DEFAULT_NODE_NAME "rcljava"
+#define SUB_PUBLSIHER_NODE_NAME "chatter_publisher"
+#define SUB_SUBSCRIPTION_NODE_NAME "chatter_subscription"
+#define DEFAULT_TOPIC_NAME "/chatter"
+#define DEFAULT_QOS 10
+#define DEFAULT_CALLBACK_NAME "chatterSubscriptionCallback"
 extern "C" {
 #endif
 

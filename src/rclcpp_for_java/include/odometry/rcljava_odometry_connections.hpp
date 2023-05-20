@@ -9,9 +9,17 @@
 #include <string>
 #include "rclcpp/rclcpp.hpp"
 #include "nav_msgs/msg/odometry.hpp"
+#define DEFAULT_ARGC 0
+#define DEFAULT_ARGV nullptr 
+#define DEFAULT_NODE_NAME "rcljava"
+#define SUB_SUBSCRIPTION_NODE_NAME "odom_subscription"
+#define DEFAULT_TOPIC_NAME "/odom"
+#define DEFAULT_QOS 10
+#define DEFAULT_CALLBACK_NAME "odomSubscriptionCallback"
 extern "C" {
 #endif
 
+JNIEXPORT void JNICALL Java_net_robot_wavem_subscription_odometry_OdometrySubscription_subscribe_1from_1odom(JNIEnv * j_env, jobject j_obj);
 
 #ifdef __cplusplus
 }
