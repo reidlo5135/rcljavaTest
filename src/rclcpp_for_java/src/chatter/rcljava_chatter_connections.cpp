@@ -1,6 +1,6 @@
 #include "chatter/rcljava_chatter_connections.hpp"
 
-JNIEXPORT void JNICALL Java_net_robot_wavem_publish_chatter_ChatterPublisher_publish_1to_1chatter(JNIEnv * j_env, jobject j_obj, jobjectArray j_chatter_message_array) {
+JNIEXPORT void JNICALL Java_net_robot_wavem_publisher_chatter_ChatterPublisher_publish_1to_1chatter(JNIEnv * j_env, jobject j_obj, jobjectArray j_chatter_message_array) {
     rclcpp::init(0, nullptr);
     auto node = std::make_shared<rclcpp::Node>("rclcpp_for_java", "chatter_publisher");
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher = node->create_publisher<std_msgs::msg::String>("/chatter", rclcpp::QoS(rclcpp::KeepLast(10)));
