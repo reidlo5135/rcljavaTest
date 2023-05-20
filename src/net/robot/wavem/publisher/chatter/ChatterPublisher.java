@@ -4,12 +4,12 @@ import java.io.File;
 import java.util.Arrays;
 
 public class ChatterPublisher {
+    private static final String SO_PATH = "../rcljava/src/rclcpp_for_java/build/rclcpp_for_java/librcljava_chatter_connections.so";
     public native void publish_to_chatter(String[] chatter_message_arr);
 
     static {
-        String soPath = "/home/wavem/vsWorkspace/rcljava/src/rclcpp_for_java/build/rclcpp_for_java/librcljava_chatter_connections.so";
-        File r = new File(soPath);
-        System.load(r.getAbsolutePath());
+        File soFile = new File(SO_PATH);
+        System.load(soFile.getAbsolutePath());
     }
 
     public static void main(String[] args) {

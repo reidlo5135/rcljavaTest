@@ -12,7 +12,7 @@
 extern "C" {
 #endif
 
-JNIEXPORT void JNICALL Java_net_robot_wavem_publish_chatter_ChatterPublisher_publish_1to_1chatter(JNIEnv * j_env, jobject j_obj, jobjectArray j_chatter_message_array);
+JNIEXPORT void JNICALL Java_net_robot_wavem_publisher_chatter_ChatterPublisher_publish_1to_1chatter(JNIEnv * j_env, jobject j_obj, jobjectArray j_chatter_message_array);
 JNIEXPORT void JNICALL Java_net_robot_wavem_subscription_chatter_ChatterSubscription_subscribe_1from_1chatter(JNIEnv * j_env, jobject j_obj);
 
 #ifdef __cplusplus
