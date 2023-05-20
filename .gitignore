@@ -1,6 +1,8 @@
 .vscode
 bin
 build
+install
+log
 src/rclcpp_for_java/build
 src/rclcpp_for_java/install
 src/rclcpp_for_java/log
