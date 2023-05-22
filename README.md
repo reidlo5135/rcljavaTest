@@ -41,6 +41,11 @@ run ChatterSubscription.java
 ```bash
 cd ${your workspace}/rcljava; /usr/bin/env /usr/lib/jvm/java-8-openjdk-amd64/bin/java -cp ${your workspace}/rcljava/bin net.robot.wavem.subscription.chatter.ChatterSubscription
 ```
+or
+```bash
+java -cp bin net.robot.wavem.subscription.chatter.ChatterSubscription
+```
+
 check your result in ROS2 demo talker node
 ```bash
 [RCLJava] chatter subscription callback chatter : Hello World: 743
