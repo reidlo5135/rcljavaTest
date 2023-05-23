@@ -5,17 +5,7 @@
 #ifndef _Included_JNI
 #define _Included_JNI
 #ifdef __cplusplus
-#include <cstdlib>
-#include <string>
-#include "rclcpp/rclcpp.hpp"
-#include "nav_msgs/msg/odometry.hpp"
-#define DEFAULT_ARGC 0
-#define DEFAULT_ARGV nullptr 
-#define DEFAULT_NODE_NAME "rcljava"
-#define SUB_SUBSCRIPTION_NODE_NAME "odom_subscription"
-#define DEFAULT_TOPIC_NAME "/odom"
-#define DEFAULT_QOS 10
-#define DEFAULT_CALLBACK_NAME "odomSubscriptionCallback"
+#include "common/rcljava_common_connections.hpp"
 extern "C" {
 #endif
 

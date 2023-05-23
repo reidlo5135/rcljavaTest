@@ -41,6 +41,7 @@ find_package(example_interfaces REQUIRED)
 find_package(JNI REQUIRED)
 
 add_library(rcljava_chatter_connections SHARED
+  include/common/rcljava_common_connections.hpp
   include/chatter/rcljava_chatter_connections.hpp
   src/chatter/rcljava_chatter_connections.cpp
 )
@@ -52,14 +53,27 @@ target_link_libraries(rcljava_chatter_connections
 )
 
 add_library(rcljava_odometry_connections SHARED
-  include/odometry/rcljava_odometry_connections
-  src/odometry/rcljava_odometry_connections
+  include/common/rcljava_common_connections.hpp
+  include/odometry/rcljava_odometry_connections.hpp
+  src/odometry/rcljava_odometry_connections.cpp
 )
 
 target_link_libraries(rcljava_odometry_connections
   ${JNI_LIBRARIES}
   ${rclcpp_LIBRARIES}
   ${nav_msgs_LIBRARIES}
+)
+
+add_library(rcljava_cmd_vel_connections SHARED
+  include/common/rcljava_common_connections.hpp
+  include/cmd_vel/rcljava_cmd_vel_connections.hpp
+  src/cmd_vel/rcljava_cmd_vel_connections.cpp
+)
+
+target_link_libraries(rcljava_cmd_vel_connections
+  ${JNI_LIBRARIES}
+  ${rclcpp_LIBRARIES}
+  ${geometry_msgs_LIBRARIES}
 )
 
 # add_executable(rcljava_chatter_connections src/chatter/rcljava_chatter_connections.cpp)

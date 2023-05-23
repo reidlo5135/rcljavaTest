@@ -6,6 +6,10 @@ public class ChatterSubscription {
     private static final String SO_PATH = "../rcljava/src/rclcpp_for_java/build/rclcpp_for_java/librcljava_chatter_connections.so";
     public native void subscribe_from_chatter();
 
+    private ChatterSubscription() {
+        System.out.println("[RCLJava] /chatter subscription is ready for RCLJava!!");
+    }
+
     static {
         File soFile = new File(SO_PATH);
         System.load(soFile.getAbsolutePath());
