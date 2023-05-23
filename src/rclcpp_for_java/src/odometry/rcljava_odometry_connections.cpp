@@ -3,10 +3,10 @@
 JNIEXPORT void JNICALL Java_net_robot_wavem_subscription_odometry_OdometrySubscription_subscribe_1from_1odom(JNIEnv * j_env, jobject j_obj) {
     const char * j_callback_type = "(Ljava/lang/String;)V";
     jclass j_class = j_env->GetObjectClass(j_obj);
-    jmethodID j_callback_method = j_env->GetMethodID(j_class, DEFAULT_CALLBACK_NAME, j_callback_type);
+    jmethodID j_callback_method = j_env->GetMethodID(j_class, ODOM_CALLBACK_METHOD_NAME, j_callback_type);
 
     rclcpp::init(DEFAULT_ARGC, DEFAULT_ARGV);
-    rclcpp::Node::SharedPtr node = std::make_shared<rclcpp::Node>(SUB_SUBSCRIPTION_NODE_NAME, DEFAULT_NODE_NAME);
+    rclcpp::Node::SharedPtr node = std::make_shared<rclcpp::Node>(ODOM_SUBSCRIPTION_NODE_NAME, DEFAULT_NODE_NAME);
     auto c_callback_method = [j_env, j_obj, j_callback_method](const nav_msgs::msg::Odometry::SharedPtr c_odom_callback_message) {
         jclass j_odom_class = j_env->FindClass("net/robot/wavem/subscription/odometry/domain/Odometry");
         jmethodID j_odom_constructor = j_env->GetMethodID(j_odom_class, "<init>", "()V");
@@ -44,7 +44,7 @@ JNIEXPORT void JNICALL Java_net_robot_wavem_subscription_odometry_OdometrySubscr
     };
 
     rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr ros_odom_subscription = node->create_subscription<nav_msgs::msg::Odometry>(
-        DEFAULT_TOPIC_NAME,
+        ODOM_TOPIC_NAME,
         rclcpp::QoS(rclcpp::KeepLast(DEFAULT_QOS)),
         c_callback_method
     );

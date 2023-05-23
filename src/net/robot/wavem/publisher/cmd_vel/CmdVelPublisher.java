@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class CmdVelPublisher {
     private static final String SO_PATH = "../rcljava/src/rclcpp_for_java/build/rclcpp_for_java/librcljava_cmd_vel_connections.so";
-    private native void publish_to_cmd_vel();
+    private native void publish_to_cmd_vel(HashMap<String, HashMap<String, Float>> defaultTwistHashMap);
 
     private CmdVelPublisher() {
         System.out.println("[RCLJava] /cmd_vel publisher is ready for RCLJava!!");
@@ -28,11 +28,19 @@ public class CmdVelPublisher {
         linearHashMap.put("y", 0.0f);
         linearHashMap.put("z", 0.0f);
 
+        angularHashMap.put("x", 0.0f);
+        angularHashMap.put("y", 0.0f);
+        angularHashMap.put("z", 0.3f);
+
+        defaultHashMap.put(linear, linearHashMap);
+        defaultHashMap.put(angular, angularHashMap);
+
         return defaultHashMap;
     }
 
     public static void main(String[] args) {
         CmdVelPublisher cmdVelPublisher = new CmdVelPublisher();
-        cmdVelPublisher.publish_to_cmd_vel();
+        HashMap<String, HashMap<String, Float>> defaultTwistHashMap = cmdVelPublisher.defaultTwistDataMap();
+        cmdVelPublisher.publish_to_cmd_vel(defaultTwistHashMap);
     }
 }
