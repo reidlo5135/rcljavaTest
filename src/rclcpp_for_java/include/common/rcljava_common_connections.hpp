@@ -41,8 +41,8 @@
 #define ODOM_TOPIC_NAME "/odom"
 #define ODOM_CALLBACK_METHOD_NAME "odomSubscriptionCallback"
 
-double cast_jdouble_to_double(jdouble c_double) {
-    return static_cast<double>(c_double);
+double cast_jdouble_to_double(jdouble j_double) {
+    return static_cast<double>(j_double);
 }
 
 #endif
