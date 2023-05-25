@@ -1,7 +1,6 @@
 package net.robot.wavem.subscription.cmd_vel;
 
 import java.io.File;
-
 import net.robot.wavem.message.geometry.Twist;
 
 public class CmdVelSubscription {

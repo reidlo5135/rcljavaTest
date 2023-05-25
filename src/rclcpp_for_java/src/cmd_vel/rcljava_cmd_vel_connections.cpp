@@ -13,13 +13,13 @@ JNIEXPORT void JNICALL Java_net_robot_wavem_publisher_cmd_1vel_CmdVelPublisher_p
 
     geometry_msgs::msg::Twist::SharedPtr twist_message_ptr = std::make_shared<geometry_msgs::msg::Twist>();
 
-    jfieldID j_linear_x_field = j_env->GetFieldID(j_twist_class, "linearX", J_DOUBLE);
-    jfieldID j_linear_y_field = j_env->GetFieldID(j_twist_class, "linearY", J_DOUBLE);
-    jfieldID j_linear_z_field = j_env->GetFieldID(j_twist_class, "linearZ", J_DOUBLE);
+    jfieldID j_linear_x_field = j_env->GetFieldID(j_twist_class, J_TWIST_LINEAR_X, J_DOUBLE);
+    jfieldID j_linear_y_field = j_env->GetFieldID(j_twist_class, J_TWIST_LINEAR_Y, J_DOUBLE);
+    jfieldID j_linear_z_field = j_env->GetFieldID(j_twist_class, J_TWIST_LINEAR_Z, J_DOUBLE);
 
-    jfieldID j_angular_x_field = j_env->GetFieldID(j_twist_class, "angularX", J_DOUBLE);
-    jfieldID j_angular_y_field = j_env->GetFieldID(j_twist_class, "angularY", J_DOUBLE);
-    jfieldID j_angular_z_field = j_env->GetFieldID(j_twist_class, "angularZ", J_DOUBLE);
+    jfieldID j_angular_x_field = j_env->GetFieldID(j_twist_class, J_TWIST_ANGULAR_X, J_DOUBLE);
+    jfieldID j_angular_y_field = j_env->GetFieldID(j_twist_class, J_TWIST_ANGULAR_Y, J_DOUBLE);
+    jfieldID j_angular_z_field = j_env->GetFieldID(j_twist_class, J_TWIST_ANGULAR_Z, J_DOUBLE);
 
     jdouble j_linear_x = j_env->GetDoubleField(j_twist, j_linear_x_field);
     jdouble j_linear_y = j_env->GetDoubleField(j_twist, j_linear_y_field);
@@ -29,13 +29,13 @@ JNIEXPORT void JNICALL Java_net_robot_wavem_publisher_cmd_1vel_CmdVelPublisher_p
     jdouble j_angular_y = j_env->GetDoubleField(j_twist, j_angular_y_field);
     jdouble j_angular_z = j_env->GetDoubleField(j_twist, j_angular_z_field);
 
-    double linear_x = static_cast<double>(j_linear_x);
-    double linear_y = static_cast<double>(j_linear_y);
-    double linear_z = static_cast<double>(j_linear_z);
+    double linear_x = cast_jdouble_to_double(j_linear_x);
+    double linear_y = cast_jdouble_to_double(j_linear_y);
+    double linear_z = cast_jdouble_to_double(j_linear_z);
 
-    double angular_x = static_cast<double>(j_angular_x);
-    double angular_y = static_cast<double>(j_angular_y);
-    double angular_z = static_cast<double>(j_angular_z);
+    double angular_x = cast_jdouble_to_double(j_angular_x);
+    double angular_y = cast_jdouble_to_double(j_angular_y);
+    double angular_z = cast_jdouble_to_double(j_angular_z);
 
     twist_message_ptr->linear.x = linear_x;
     twist_message_ptr->linear.y = linear_y;
@@ -69,13 +69,13 @@ JNIEXPORT void JNICALL Java_net_robot_wavem_subscription_cmd_1vel_CmdVelSubscrip
     rclcpp::init(DEFAULT_ARGC, DEFAULT_ARGV);
     rclcpp::Node::SharedPtr node = std::make_shared<rclcpp::Node>(CMD_VEL_SUBSCRIPTION_NODE_NAME, DEFAULT_NODE_NAME);
     auto c_callback_method = [j_env, j_obj, j_twist_class, j_twist_instance, j_callback_method](const geometry_msgs::msg::Twist::SharedPtr c_twist_callback_message) {
-        jfieldID j_linear_x_field = j_env->GetFieldID(j_twist_class, "linearX", J_DOUBLE);
-        jfieldID j_linear_y_field = j_env->GetFieldID(j_twist_class, "linearY", J_DOUBLE);
-        jfieldID j_linear_z_field = j_env->GetFieldID(j_twist_class, "linearZ", J_DOUBLE);
+        jfieldID j_linear_x_field = j_env->GetFieldID(j_twist_class, J_TWIST_LINEAR_X, J_DOUBLE);
+        jfieldID j_linear_y_field = j_env->GetFieldID(j_twist_class, J_TWIST_LINEAR_Y, J_DOUBLE);
+        jfieldID j_linear_z_field = j_env->GetFieldID(j_twist_class, J_TWIST_LINEAR_Z, J_DOUBLE);
 
-        jfieldID j_angular_x_field = j_env->GetFieldID(j_twist_class, "angularX", J_DOUBLE);
-        jfieldID j_angular_y_field = j_env->GetFieldID(j_twist_class, "angularY", J_DOUBLE);
-        jfieldID j_angular_z_field = j_env->GetFieldID(j_twist_class, "angularZ", J_DOUBLE);
+        jfieldID j_angular_x_field = j_env->GetFieldID(j_twist_class, J_TWIST_ANGULAR_X, J_DOUBLE);
+        jfieldID j_angular_y_field = j_env->GetFieldID(j_twist_class, J_TWIST_ANGULAR_Y, J_DOUBLE);
+        jfieldID j_angular_z_field = j_env->GetFieldID(j_twist_class, J_TWIST_ANGULAR_Z, J_DOUBLE);
         
         double linear_x = c_twist_callback_message->linear.x;
         double linear_y = c_twist_callback_message->linear.y;

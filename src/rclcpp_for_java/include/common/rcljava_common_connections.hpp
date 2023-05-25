@@ -29,11 +29,20 @@
 #define CMD_VEL_SUBSCRIPTION_NODE_NAME "cmd_vel_subscription"
 #define CMD_VEL_TOPIC_NAME "/cmd_vel"
 #define CMD_VEL_CALLBACK_METHOD_NAME "cmdVelSubscriptionCallback"
-#define J_TWIST_LINEAR_KEY "linear"
-#define J_TWIST_ANGULAR_KEY "angular"
+
+#define J_TWIST_LINEAR_X "linearX"
+#define J_TWIST_LINEAR_Y "linearY"
+#define J_TWIST_LINEAR_Z "linearZ"
+#define J_TWIST_ANGULAR_X "angularX"
+#define J_TWIST_ANGULAR_Y "angularY"
+#define J_TWIST_ANGULAR_Z "angularZ"
 
 #define ODOM_SUBSCRIPTION_NODE_NAME "odom_subscription"
 #define ODOM_TOPIC_NAME "/odom"
 #define ODOM_CALLBACK_METHOD_NAME "odomSubscriptionCallback"
+
+double cast_jdouble_to_double(jdouble c_double) {
+    return static_cast<double>(c_double);
+}
 
 #endif
