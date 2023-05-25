@@ -76,9 +76,6 @@ target_link_libraries(rcljava_cmd_vel_connections
   ${geometry_msgs_LIBRARIES}
 )
 
-# add_executable(rcljava_chatter_connections src/chatter/rcljava_chatter_connections.cpp)
-# ament_target_dependencies(rcljava_chatter_connections rcl rclcpp std_msgs geometry_msgs sensor_msgs nav_msgs nav2_msgs tf2_msgs example_interfaces)
-
 install(TARGETS
   rcljava_chatter_connections
   DESTINATION lib/${PROJECT_NAME}
