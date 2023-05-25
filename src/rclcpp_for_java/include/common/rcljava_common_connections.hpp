@@ -14,6 +14,12 @@
 #define DEFAULT_NODE_NAME "rcljava"
 #define DEFAULT_QOS 10
 
+#define J_STRING "S"
+#define J_DOUBLE "D"
+#define J_FLOAT "F"
+
+#define J_VOID "V"
+
 #define CHATTER_PUBLISHER_NODE_NAME "chatter_publisher"
 #define CHATTER_SUBSCRIPTION_NODE_NAME "chatter_subscription"
 #define CHATTER_TOPIC_NAME "/chatter"

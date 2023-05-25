@@ -1,4 +1,4 @@
-package net.robot.wavem.subscription.odometry.domain;
+package net.robot.wavem.message.nav;
 
 public class Odometry {
     private double positionX;

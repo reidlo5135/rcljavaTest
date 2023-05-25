@@ -2,7 +2,7 @@ package net.robot.wavem.subscription.cmd_vel;
 
 import java.io.File;
 
-import net.robot.wavem.domain.Twist;
+import net.robot.wavem.message.geometry.Twist;
 
 public class CmdVelSubscription {
     private static final String SO_PATH = "../rcljava/src/rclcpp_for_java/build/rclcpp_for_java/librcljava_cmd_vel_connections.so";
@@ -18,12 +18,12 @@ public class CmdVelSubscription {
     }
 
     void cmdVelSubscriptionCallback(Twist twist) {
-        float linearX = twist.getLinearX();
-        float linearY = twist.getLinearY();
-        float linearZ = twist.getLinearZ();
-        float angularX = twist.getAngularX();
-        float angularY = twist.getAngularY();
-        float angularZ = twist.getAngularZ();
+        double linearX = twist.getLinearX();
+        double linearY = twist.getLinearY();
+        double linearZ = twist.getLinearZ();
+        double angularX = twist.getAngularX();
+        double angularY = twist.getAngularY();
+        double angularZ = twist.getAngularZ();
 
         System.out.println("[RCLJava] /cmd_vel subscription callback linear x : " + linearX);
         System.out.println("[RCLJava] /cmd_vel subscription callback linear y : " + linearY);

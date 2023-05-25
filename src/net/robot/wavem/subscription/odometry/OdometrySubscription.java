@@ -2,7 +2,7 @@ package net.robot.wavem.subscription.odometry;
 
 import java.io.File;
 
-import net.robot.wavem.subscription.odometry.domain.Odometry;
+import net.robot.wavem.message.nav.Odometry;
 
 public class OdometrySubscription {
     private static final String SO_PATH = "../rcljava/src/rclcpp_for_java/build/rclcpp_for_java/librcljava_odometry_connections.so";
